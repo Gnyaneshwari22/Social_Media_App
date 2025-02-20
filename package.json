@@ -1,0 +1,26 @@
+{
+  "name": "final_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node backend/seeders/seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

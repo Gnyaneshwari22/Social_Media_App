@@ -1,0 +1,23 @@
+body {
+  padding: 20px;
+}
+
+.post {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.post img {
+  max-width: 100%;
+  height: auto;
+}
+
+.comment {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
