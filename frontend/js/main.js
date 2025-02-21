@@ -2,22 +2,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const postForm = document.getElementById("postForm");
   const postsContainer = document.getElementById("posts");
 
+  // Create Post
   postForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const imageLink = document.getElementById("imageLink").value;
     const description = document.getElementById("description").value;
 
     try {
-      const response = await axios.post("http://localhost:3000/posts", {
+      await axios.post("http://localhost:3000/posts", {
         imageLink,
         description,
       });
       loadPosts();
+      postForm.reset();
     } catch (error) {
       console.error("Error creating post:", error);
     }
   });
 
+  // Load Posts
   const loadPosts = async () => {
     try {
       const response = await axios.get("http://localhost:3000/posts");
@@ -26,29 +29,44 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(post);
       });
       postsContainer.innerHTML = "";
+
       posts.forEach((post) => {
         const postElement = document.createElement("div");
-        postElement.className = "post";
+        postElement.className = "post card p-3";
+
         postElement.innerHTML = `
-                    <img src="${post.imageLink}" alt="Post Image">
-                    <p>${post.description}</p>
-                    <div class="comments">
-                        ${post.comments
-                          .map(
-                            (comment) => `
-                            <div class="comment">${comment.text}</div>
-                        `
-                          )
-                          .join("")}
-                    </div>
-                    <form class="commentForm" data-post-id="${post.id}">
-                        <input type="text" class="form-control" placeholder="Add a comment" required>
-                        <button type="submit" class="btn btn-secondary">Comment</button>
-                    </form>
-                `;
+          <div class="text-center">
+            <img src="${
+              post.imageLink
+            }" alt="Post Image" class="post-image img-fluid mb-3">
+          </div>
+          <p  class="text-center fw-bold fs-4">${post.description}</p>
+
+          <div class="comments">
+            ${post.comments
+              .map(
+                (comment) =>
+                  `<div class="comment"><p><strong>Anonymus</strong> - ${comment.text}</p></div>`
+              )
+              .join("")}
+          </div>
+
+          <form class="commentForm mt-3" data-post-id="${post.id}">
+            <div class="row g-2">
+              <div class="col-8">
+                <input type="text" class="form-control" placeholder="Add a comment" required>
+              </div>
+              <div class="col-4">
+                <button type="submit" class="btn btn-secondary w-100">Comment</button>
+              </div>
+            </div>
+          </form>
+        `;
+
         postsContainer.appendChild(postElement);
       });
 
+      // Handling comment form submission
       document.querySelectorAll(".commentForm").forEach((form) => {
         form.addEventListener("submit", async (e) => {
           e.preventDefault();

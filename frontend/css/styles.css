@@ -1,23 +1,49 @@
 body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main container */
+.container {
+  width: 100%;
+  max-width: 800px;
   padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Post card style */
 .post {
-  margin-bottom: 20px;
   border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-.post img {
-  max-width: 100%;
-  height: auto;
+/* Fixed image size for posts */
+.post-image {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 10px;
 }
 
+/* Comment section styling */
 .comment {
   margin-top: 10px;
   padding: 10px;
-  background-color: #f9f9f9;
+  background-color: #f1f1f1;
   border: 1px solid #ddd;
   border-radius: 5px;
 }

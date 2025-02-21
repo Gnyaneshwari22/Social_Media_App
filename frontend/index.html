@@ -11,27 +11,35 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Create Post</h1>
-      <form id="postForm">
-        <div class="mb-3">
-          <label for="imageLink" class="form-label">Image Link</label>
-          <input type="text" class="form-control" id="imageLink" required />
-        </div>
-        <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
-          <textarea
-            class="form-control"
-            id="description"
-            rows="3"
-            required
-          ></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Create Post</button>
-      </form>
+    <div class="container my-5">
+      <div class="col-md-8 mx-auto">
+        <h1 class="text-center mb-4">Create Post</h1>
+        <form id="postForm" class="mb-5">
+          <div class="mb-3">
+            <label for="imageLink" class="form-label"
+              ><strong>Image Link</strong>
+            </label>
+            <input type="text" class="form-control" id="imageLink" required />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label"
+              ><strong>Description</strong></label
+            >
+            <textarea
+              class="form-control"
+              id="description"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">
+            Create Post
+          </button>
+        </form>
 
-      <h2>Posts</h2>
-      <div id="posts"></div>
+        <h2 class="text-center">Posts</h2>
+        <div id="posts"></div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
