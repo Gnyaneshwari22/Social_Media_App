@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         imageLink,
         description,
       });
+      alert("Post Added successfully Scroll down to check!");
       loadPosts();
       postForm.reset();
     } catch (error) {
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
               text,
               postId,
             });
+            alert("Comment added successfully!");
             loadPosts();
           } catch (error) {
             console.error("Error adding comment:", error);
